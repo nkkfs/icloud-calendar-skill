@@ -10,9 +10,16 @@ Full documentation lives in [`SKILL.md`](./SKILL.md). This README is a quickstar
 # 1. Install dependencies
 uv pip install --system caldav icalendar pytz tzlocal
 
-# 2. Export credentials (app-specific password from https://appleid.apple.com)
+# 2a. Export credentials (app-specific password from https://appleid.apple.com)
 export ICLOUD_APPLE_ID="you@icloud.com"
 export ICLOUD_APP_PASSWORD="xxxx-xxxx-xxxx-xxxx"
+
+# 2b. 
+cat > ~/.openclaw/.env <<'EOF'
+ICLOUD_APPLE_ID=apple.id@icloud.com
+ICLOUD_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx
+EOF
+chmod 600 ~/.openclaw/.env
 
 # 3. Run
 python icloud_caldav_cli.py list-calendars
